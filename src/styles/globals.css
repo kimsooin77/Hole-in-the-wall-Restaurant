@@ -3,70 +3,50 @@
 @tailwind utilities;
 
 .navbar {
-  padding: 10px 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  background-color: white;
+  @apply flex justify-between items-center fixed w-full top-0 shadow-sm bg-white
 }
 
 .navbar_logo {
-  cursor: pointer;
-}
-
-.navbar_button {
-  display: none;
-  cursor: pointer;
-  color: #FDB900;
+  @apply cursor-pointer px-[18px] py-0;
 }
 
 .navbar_list {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+  @apply flex gap-3 items-center px-[18px] py-0;
 }
 
+
+.navbar_button {
+  @apply hidden cursor-pointer text-primary;
+}
+
+
 .navbar_list_item {
-  cursor: pointer;
+  @apply cursor-pointer;
 }
 
 .layout {
-  padding-top: 82px;
+  @apply pt-[55px];
 }
 
 @media only screen and (max-width : 600px) {
   .navbar_mobile {
-    position: fixed;
-    width: 100%;
-    top: 82px;
-    color: white;
-    background-color: #FDB900;
-    height: 30vh;
+    @apply fixed w-full text-white h-[30vh] top-[55px] bg-primary;
   }
 
   .navbar_list {
-    display: none;
+    @apply hidden;
   }
 
   .navbar_button {
-    display: block;
-    padding: 0px 18px;
+    @apply block px-[18px] py-0;
   }
 
   .navbar_list_item_mobile {
-    cursor: pointer;
+    @apply cursor-pointer;
   }
 
   .navbar_list_mobile {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px 18px;
-    align-items: center;
+    @apply flex flex-col gap-4 items-center px-[18px] py-6;
   }
 
 

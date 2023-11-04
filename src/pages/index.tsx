@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
-import Layout from '@/component/Layout'
+import Layout from '@/components/Layout'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <Layout>
+    <>
         <h1>hello world</h1>
           <ul>
             <li>
@@ -33,6 +33,6 @@ export default function Home() {
             </li>
           </ul>  
 
-    </Layout>
+    </>
   )
 }
