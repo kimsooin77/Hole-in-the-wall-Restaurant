@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { HiMenu } from "react-icons/hi"
 import { AiOutlineClose } from "react-icons/ai";
-import Logo  from "../components/assets/Logo.svg";
+import Logo  from "../../public/image/Logo.svg";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
