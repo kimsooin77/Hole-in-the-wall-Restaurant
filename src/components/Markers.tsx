@@ -1,16 +1,16 @@
-import { StoreType } from "@/assets/data";
+import { StoreType } from "@/interface";
 import { Dispatch, SetStateAction, useCallback, useEffect } from "react"
 
 interface MarkerProps {
     map: any;
-    storeDatas: any[];
+    stores: any[];
     setCurrentStore: Dispatch<SetStateAction<any>>;
 }
 
-export default function Markers({ map,storeDatas,setCurrentStore }:MarkerProps) {
+export default function Markers({ map,stores,setCurrentStore }:MarkerProps) {
     const loadKakaoMarkers = useCallback(() => {
         if (map) {
-            storeDatas?.map((store) => {
+            stores?.map((store) => {
 
                 var imageSrc = store?.bizcnd_code_nm
                     ? `/image/makers/${store?.bizcnd_code_nm}.png`
@@ -61,7 +61,7 @@ export default function Markers({ map,storeDatas,setCurrentStore }:MarkerProps) 
                 })
             })
         }
-    }, [map, setCurrentStore, storeDatas]);
+    }, [map, setCurrentStore, stores]);
 
     useEffect(() => {
         loadKakaoMarkers();
