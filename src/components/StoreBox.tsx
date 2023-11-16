@@ -5,7 +5,7 @@ import Image from "next/image";
 import { StoreType } from "@/interface";
 
 interface StoreBoxProps {
-    store: StoreType;
+    store: StoreType | null;
     setStore: Dispatch<SetStateAction<any>>;
 }
 
