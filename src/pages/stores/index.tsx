@@ -1,13 +1,20 @@
-import { StoreType } from "@/interface";
+import { StoreApiResponse, StoreType } from "@/interface";
 import Image from "next/image"
 import axios from "axios";
 import { useQuery } from "react-query";
 import Loading from "@/components/Loading";
 
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Pagination from "@/components/Pagination";
+
 export default function StoreListPage() {
-    const {isLoading, isError, data : stores} = useQuery("stores", async () => {
-        const { data } = await axios("/api/stores");
-        return data as StoreType[];
+    const router = useRouter();
+    const { page = "1" }:any = router.query;
+    
+    const {isLoading, isError, data : stores} = useQuery(`stores-${page}`, async () => {
+        const { data } = await axios(`/api/stores?page=${page}`);
+        return data as StoreApiResponse;
     });
 
     if (isError) {
@@ -18,7 +25,7 @@ export default function StoreListPage() {
             <ul role="list" className="divide-y divide-gray-100">
                 {isLoading
                     ? <Loading />
-                    : stores?.map((store, index) => (
+                    : stores?.data.map((store, index) => (
                     <li className="flex justify-between gap-x-6 py-5" key={index}>
                         <div className="flex gap-x-4">
                             <Image
@@ -50,6 +57,10 @@ export default function StoreListPage() {
                     </li>
                 ))}
             </ul>
+            {stores?.totalPage && (
+                <Pagination total={stores.totalPage} page={page} />
+            )}
+
         </div>
     )
 }
