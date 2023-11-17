@@ -16,7 +16,7 @@ export default function Navbar() {
                     <Link href="/stores" className="navbar_list_item">맛집 목록</Link>
                     <Link href="/stores/new" className="navbar_list_item">맛집 등록</Link>
                     <Link href="/users/likes" className="navbar_list_item">찜한 가게</Link>
-                    <Link href="/users/login" className="navbar_list_item">로그인</Link>
+                    <Link href="/api/auth/signin" className="navbar_list_item">로그인</Link>
                 </div>
                 <div role="presentation" className="navbar_button" onClick={() => setIsOpen(val => !val)}>
                     {isOpen ? <AiOutlineClose size="20px" /> : <HiMenu size="20px" />}
@@ -28,7 +28,7 @@ export default function Navbar() {
                     <Link href="/stores" className="navbar_list_item_mobile">맛집 목록</Link>
                     <Link href="/stores/new" className="navbar_list_item_mobile">맛집 등록</Link>
                     <Link href="/users/likes" className="navbar_list_item_mobile">찜한 가게</Link>
-                    <Link href="/users/login" className="navbar_list_item_mobile">로그인</Link>
+                    <Link href="/api/auth/signin" className="navbar_list_item_mobile">로그인</Link>
                 </div>
             </div>
             )}
