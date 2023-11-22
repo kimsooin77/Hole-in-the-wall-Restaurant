@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .navbar {
-  @apply flex justify-between items-center fixed w-full top-0 shadow-sm bg-white
+  @apply flex justify-between items-center fixed w-full top-0 shadow-sm bg-white z-[100];
 }
 
 .navbar_logo {
@@ -14,11 +14,9 @@
   @apply flex gap-3 items-center px-[18px] py-0;
 }
 
-
 .navbar_button {
   @apply hidden cursor-pointer text-primary;
 }
-
 
 .navbar_list_item {
   @apply cursor-pointer;
@@ -28,7 +26,7 @@
   @apply pt-[55px];
 }
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width: 600px) {
   .navbar_mobile {
     @apply fixed w-full text-white h-[30vh] top-[55px] bg-primary;
   }
@@ -51,5 +49,5 @@
 }
 
 .infowindow {
-  @apply bg-primary text-white block text-sm text-center h-6 rounded-sm px-2 leading-6;
+  @apply w-full bg-primary text-white block text-sm text-center h-6 rounded-sm px-2 leading-6;
 }
