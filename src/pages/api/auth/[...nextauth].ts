@@ -8,6 +8,14 @@ import KakaoProvider from "next-auth/providers/kakao";
 const prisma = new PrismaClient();
 
 export const authOptions = {
+  session: {
+    // jwt기반의 session 사용 명시
+    strategy: "jwt" as const,
+    // session의 최대 수명 - 30 days
+    maxAge: 30 * 24 * 60 * 60,
+    // session을 업데이트하는 주기
+    updateAge: 60 * 60 * 2,
+  },
   adapter: PrismaAdapter(prisma),
   // Configure one or more authentication providers
   providers: [
