@@ -8,7 +8,6 @@ import { useQuery } from "react-query";
 import Marker from "@/components/Marker";
 
 export default function StoreDetailPage() {
-  const [map, setMap] = useState(null);
   const router = useRouter();
   const { id } = router.query;
 
@@ -113,8 +112,8 @@ export default function StoreDetailPage() {
       </div>
       {isSuccess && (
         <div className="overflow-hidden w-full mb-20 max-w-5xl mx-auto max-h-[600px]">
-          <Map setMap={setMap} lat={store?.lat} lng={store?.lng} zoom={1} />
-          <Marker store={store} map={map} />
+          <Map lat={store?.lat} lng={store?.lng} zoom={1} />
+          <Marker store={store} />
         </div>
       )}
     </>
