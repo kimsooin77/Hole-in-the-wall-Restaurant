@@ -27,8 +27,8 @@ export default function StoreBox() {
                 <Image
                   src={
                     store?.category
-                      ? `/image/makers/${store?.category}.png`
-                      : "/image/makers/default.png"
+                      ? `/image/markers/${store?.category}.png`
+                      : "/image/markers/default.png"
                   }
                   width={40}
                   height={40}

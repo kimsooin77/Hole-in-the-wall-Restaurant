@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 interface StoreListProps {
-  store: StoreType;
+  store?: StoreType;
   i: number;
 }
 
@@ -13,7 +13,7 @@ export default function StoreList({ store, i }: StoreListProps) {
     <li
       className="flex justify-between gap-x-6 py-5 cursor-pointer hover:bg-gray-50"
       key={i}
-      onClick={() => router.push(`/stores/${store.id}`)}
+      onClick={() => router.push(`/stores/${store?.id}`)}
     >
       <div className="flex gap-x-4">
         <Image

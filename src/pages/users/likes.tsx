@@ -1,17 +1,26 @@
 import Loading from "@/components/Loading";
+import Pagination from "@/components/Pagination";
 import StoreList from "@/components/StoreList";
 import { LikeApiResponse, LikeInterface, StoreType } from "@/interface";
 import axios from "axios";
+import { useRouter } from "next/router";
 import React from "react";
 import { useQuery } from "react-query";
 
 export default function LikesPage() {
+  const router = useRouter();
+  const { page = "1" }: any = router.query;
+
   const fetchLikes = async () => {
-    const { data } = await axios("/api/likes");
+    const { data } = await axios(`/api/likes?limit=10&page=${page}`);
     return data as LikeApiResponse;
   };
 
-  const { data: likes, isError, isLoading } = useQuery("likes", fetchLikes);
+  const {
+    data: likes,
+    isError,
+    isLoading,
+  } = useQuery(`likes-${page}`, fetchLikes);
 
   if (isError) {
     return (
@@ -33,6 +42,13 @@ export default function LikesPage() {
           ))
         )}
       </ul>
+      {likes?.totalPage && likes?.totalPage > 0 && (
+        <Pagination
+          total={likes?.totalPage}
+          page={page}
+          pathname="/users/likes"
+        />
+      )}
     </div>
   );
 }
