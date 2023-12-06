@@ -2,10 +2,11 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import prisma from "@/db";
+import { LikeApiResponse, LikeInterface } from "@/interface";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<LikeInterface | LikeApiResponse>
 ) {
   const session = await getServerSession(req, res, authOptions);
 
@@ -42,5 +43,19 @@ export default async function handler(
       });
       return res.status(201).json(like);
     }
+  } else {
+    // GET 요청 처리
+    const likes = await prisma.like.findMany({
+      orderBy: { createdAt: "desc" },
+      where: {
+        userId: session.user.id,
+      },
+      include: {
+        store: true,
+      },
+    });
+    return res.status(200).json({
+      data: likes,
+    });
   }
 }
