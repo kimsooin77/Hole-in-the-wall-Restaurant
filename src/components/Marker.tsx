@@ -4,7 +4,7 @@ import { useCallback, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 
 interface MarkerProps {
-  map: any;
+  map?: any;
   store: StoreType;
 }
 
