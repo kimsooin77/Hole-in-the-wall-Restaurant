@@ -7,6 +7,7 @@ import { CommentApiResponse, CommentInterface } from "@/interface";
 interface ResponseType {
   page?: string;
   limit?: string;
+  storeId: string;
 }
 
 export default async function handler(
@@ -14,6 +15,7 @@ export default async function handler(
   res: NextApiResponse<CommentInterface | CommentApiResponse>
 ) {
   const session = await getServerSession(req, res, authOptions);
+  const { page = "1", limit = "10", storeId = "" }: ResponseType = req.query;
 
   if (req.method === "POST") {
     // 댓글 생성
@@ -35,5 +37,26 @@ export default async function handler(
     // 댓글 삭제
   } else {
     // 댓글 가져오기
+    const skipPage = parseInt(page) - 1;
+    const count = await prisma.comment.count({
+      where: {
+        storeId: storeId ? parseInt(storeId) : {},
+      },
+    });
+
+    const comments = await prisma.comment.findMany({
+      orderBy: { createdAt: "desc" },
+      where: {
+        storeId: storeId ? parseInt(storeId) : {},
+      },
+      skip: skipPage * parseInt(limit),
+      take: parseInt(limit),
+    });
+
+    return res.status(200).json({
+      data: comments,
+      page: parseInt(page),
+      totalPage: Math.ceil(count / parseInt(limit)),
+    });
   }
 }
