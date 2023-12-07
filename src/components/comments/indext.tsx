@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import { useSession } from "next-auth/react";
 import CommentForm from "./CommentForm";
 import { useRouter } from "next/router";
 import { CommentApiResponse } from "@/interface";
 import axios from "axios";
 import { useQuery } from "react-query";
+import CommentList from "./CommentList";
 
 interface CommentProps {
   storeId: number;
@@ -28,6 +30,7 @@ export default function Comments({ storeId }: CommentProps) {
       {/* comment form */}
       {status === "authenticated" && <CommentForm storeId={storeId} />}
       {/* comment list */}
+      <CommentList comments={comments} />
     </div>
   );
 }
