@@ -28,7 +28,7 @@
 
 @media only screen and (max-width: 600px) {
   .navbar_mobile {
-    @apply fixed w-full text-white h-[35vh] top-[55px] bg-primary z-[100];
+    @apply fixed w-full text-white h-[35vh] top-[53px] bg-primary z-[100];
   }
 
   .navbar_list {
