@@ -3,6 +3,7 @@ import { useState } from "react";
 import { MdOutlineMyLocation } from "react-icons/md";
 import { toast } from "react-toastify";
 import { useRecoilValue } from "recoil";
+import FullPageLoader from "./FullPageLoaser";
 
 export default function CurrentLocationButton() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -43,11 +44,7 @@ export default function CurrentLocationButton() {
 
   return (
     <>
-      {loading && (
-        <div className="fixed w-full top-0 inset-x-0 h-screen flex flex-col justify-center bg-black/60 z-50">
-          <div className="animate-spin w-10 h-10 text-blue-400 rounded-full border-[4px] m-auto borde-t-transparent border-current" />
-        </div>
-      )}
+      {loading && <FullPageLoader />}
       <button
         type="button"
         onClick={handleCurrentPosition}
