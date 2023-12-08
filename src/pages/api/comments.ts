@@ -5,6 +5,7 @@ import prisma from "@/db";
 import { CommentApiResponse, CommentInterface } from "@/interface";
 
 interface ResponseType {
+  id?: string;
   page?: string;
   limit?: string;
   storeId?: string;
@@ -15,7 +16,12 @@ export default async function handler(
   res: NextApiResponse<CommentInterface | CommentApiResponse>
 ) {
   const session = await getServerSession(req, res, authOptions);
-  const { page = "1", limit = "10", storeId = "" }: ResponseType = req.query;
+  const {
+    id = "",
+    page = "1",
+    limit = "10",
+    storeId = "",
+  }: ResponseType = req.query;
 
   if (req.method === "POST") {
     // 댓글 생성
@@ -35,6 +41,17 @@ export default async function handler(
     return res.status(200).json(comment);
   } else if (req.method === "DELETE") {
     // 댓글 삭제
+    if (!session?.user || !id) {
+      return res.status(401);
+    }
+
+    const result = await prisma.comment.delete({
+      where: {
+        id: parseInt(id),
+      },
+    });
+
+    return res.status(200).json(result);
   } else {
     // 댓글 가져오기
     const skipPage = parseInt(page) - 1;

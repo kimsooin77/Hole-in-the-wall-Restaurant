@@ -5,9 +5,10 @@ import { toast } from "react-toastify";
 
 interface CommentProps {
   storeId: number;
+  refetch: () => void;
 }
 
-export default function Comments({ storeId }: CommentProps) {
+export default function Comments({ storeId, refetch }: CommentProps) {
   const { status } = useSession();
   const {
     register,
@@ -26,6 +27,7 @@ export default function Comments({ storeId }: CommentProps) {
         if (result.status === 200) {
           toast.success("댓글을 등록했습니다.");
           resetField("body");
+          refetch?.();
         } else {
           toast.error("다시 시도해주세요.");
         }
