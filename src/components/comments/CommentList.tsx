@@ -3,13 +3,20 @@
 import { CommentApiResponse } from "@/interface";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { toast } from "react-toastify";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 interface CommentListProps {
   comments?: CommentApiResponse;
-  refetch: () => void;
+  refetch?: () => void;
+  displayStore?: boolean;
 }
-export default function CommentList({ comments, refetch }: CommentListProps) {
+export default function CommentList({
+  comments,
+  refetch,
+  displayStore,
+}: CommentListProps) {
   const { data: session } = useSession();
 
   const handleDeleteComment = async (id: number) => {
@@ -54,6 +61,17 @@ export default function CommentList({ comments, refetch }: CommentListProps) {
                 {new Date(comment?.createdAt)?.toLocaleDateString()}
               </p>
               <p className="text-black mt-1 text-base">{comment.body}</p>
+              {displayStore && comment.store && (
+                <div className="mt-2 flex gap-1.5 items-center">
+                  <FaLongArrowAltRight className="text-blue-800" />
+                  <Link
+                    href={`/stores/${comment.store?.id}`}
+                    className="text-blue-800 font-bold"
+                  >
+                    {comment.store.name}
+                  </Link>
+                </div>
+              )}
             </div>
             <div>
               {comment.userId === session?.user.id && (
