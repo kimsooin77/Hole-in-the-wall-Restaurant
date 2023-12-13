@@ -42,10 +42,10 @@ export default function Markers({ stores }: MarkerProps) {
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
 
-        var content = `<div class="infowindow">${store?.name}</div>`; // 인포윈도우에 표시노리 내용
+        var content = `<div class="infowindow">${store?.name}</div>`; // 인포윈도우에 표시될 내용
 
-        // 인포윈도우를 생성합니다
-        var customOverlay = new window.kakao.maps.InfoWindow({
+        // 커스텀 오버레이를 생성합니다
+        var customOverlay = new window.kakao.maps.CustomOverlay({
           position: markerPosition,
           content: content,
           xAnchor: 0.6,

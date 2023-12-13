@@ -11,8 +11,8 @@ export default function Navbar() {
   return (
     <>
       <div className="navbar">
-        <Link href="/">
-          <Logo className="navbar_logo" />
+        <Link href="/" className="navbar_logo">
+          <Logo />
         </Link>
         <div className="navbar_list">
           <Link href="/stores" className="navbar_list_item">

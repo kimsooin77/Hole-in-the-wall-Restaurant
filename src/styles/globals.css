@@ -49,5 +49,5 @@
 }
 
 .infowindow {
-  @apply w-full bg-primary text-white block text-sm text-center h-6 rounded-sm px-2 leading-6;
+  @apply bg-primary text-white block text-sm text-center h-6 rounded-sm px-2 leading-6;
 }

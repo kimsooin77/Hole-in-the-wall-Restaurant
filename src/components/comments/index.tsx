@@ -8,12 +8,11 @@ import CommentList from "./CommentList";
 
 interface CommentProps {
   storeId: number;
-  params?: { page?: string };
+  page: string;
 }
 
-export default function Comments({ storeId, params }: CommentProps) {
+export default function Comments({ storeId, page }: CommentProps) {
   const { status } = useSession();
-  const page: any = params?.page || "1";
 
   const fetchComments = async () => {
     const { data } = await axios(
