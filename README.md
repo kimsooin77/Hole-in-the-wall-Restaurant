@@ -12,7 +12,7 @@ https://hole-in-the-wall.vercel.app/
 ## 🧏🏻‍♀️ 프로젝트 설명
 - Next.js에서 제공하는 `API Routes`(NextApiRequest, NextApiResponse) 사용해 서버리스 API를 설계하였습니다.
 - `Prisma, Supabase`를 연결해 데이터베이스 스키마를 관리할 수 있도록 적용하였습니다.
-- `React Quer`y를 통해 데이터를 fetching하고 fetching을 완료한 뒤 성공/실패 여부에 따른 로직을 처리하였습니다.
+- `React query`를 통해 데이터를 fetching하고 fetching을 완료한 뒤 성공/실패 여부에 따른 로직을 처리하였습니다.
 - Prisma Adapter를 사용해 Next-auth로 회원가입을 하면 유저 정보가 prisma로 저장되도록 하였습니다.
 - `Recoil을 적용`해 Map, Marker, 검색필터의 상태 및 상태 관리 함수를 `전역으로 관리`할 수 있도록 하였습니다.
 - CSS 프레임워크인 `TailwindCSS`를 사용해 스타일을 적용하였습니다.
@@ -33,7 +33,8 @@ https://hole-in-the-wall.vercel.app/
 
 ## 💥 발생했던 이슈
 - [로그인 에러](https://velog.io/@ssooo_kk_77/prisma-next-auth-login-error)
-- [배포 에러](https://velog.io/@ssooo_kk_77/deploy-error)
+- [빌드 에러](https://velog.io/@ssooo_kk_77/build-error)
+
 <br />
 
 ## 🔎 기능 설명
