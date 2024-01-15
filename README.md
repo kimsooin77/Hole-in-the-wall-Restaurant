@@ -10,6 +10,7 @@ https://hole-in-the-wall.vercel.app/
 <br />
 
 ## 🧏🏻‍♀️ 프로젝트 설명
+- `서울시에서 인증 및 지정 받은 업소 현황을 제공하는 오픈 API를 이용한 맛집 지도 앱`입니다. 
 - Next.js에서 제공하는 `API Routes`(NextApiRequest, NextApiResponse) 사용해 서버리스 API를 설계하였습니다.
 - `Prisma, Supabase`를 연결해 데이터베이스 스키마를 관리할 수 있도록 적용하였습니다.
 - `React query`를 통해 데이터를 fetching하고 fetching을 완료한 뒤 성공/실패 여부에 따른 로직을 처리하였습니다.
@@ -45,7 +46,7 @@ https://hole-in-the-wall.vercel.app/
 <br />
 <br />
 
-- 공공 데이터 OpenAP(https://data.seoul.go.kr/dataList/OA-2741/S/1/datasetView.do)를 이용하여 맛집 데이터를 가져와 사용하였습니다.
+- 공공 데이터 OpenAPI (https://data.seoul.go.kr/dataList/OA-2741/S/1/datasetView.do) 를 이용하여 맛집 데이터를 가져와 사용하였습니다.
 - `Kakao Map API`로 지도 위에 맛집별 카테고리에 따른 마커를 표시하였습니다.
 - 맛집을 클릭하면 해당 가게의 상세 정보를 확인할 수 있는 모달을 추가하였습니다.
 - 상세 정보 모달은 가게 이름 / 주소 / 전화번호 / 업종명 / 카테고리와 찜 기능이 포함되어 있습니다.
