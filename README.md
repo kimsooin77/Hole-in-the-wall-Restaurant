@@ -5,7 +5,7 @@
 <br />
 
 ## 사이트 링크
-https://hole-in-the-wall.vercel.app/
+https://hole-in-the-wall-restaurant.vercel.app
 
 <br />
 
@@ -18,7 +18,9 @@ https://hole-in-the-wall.vercel.app/
 - `Recoil을 적용`해 Map, Marker, 검색필터의 상태 및 상태 관리 함수를 `전역으로 관리`할 수 있도록 하였습니다.
 - CSS 프레임워크인 `TailwindCSS`를 사용해 스타일을 적용하였습니다.
 - Github을 연동하여 `Vercel에 자동으로 배포`하도록 하였습니다.
-
+- lazy loading을 적용하여 첫 페이지 로딩 시간 0.87s 단축
+    
+    🔗 [https://velog.io/@ssooo_kk_77/프로젝트를-최적화하는-다양한-방법](https://velog.io/@ssooo_kk_77/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95)
 
 <br />
 
@@ -28,7 +30,16 @@ https://hole-in-the-wall.vercel.app/
 <br />
 
 ## 🛠️ 사용한 기술 스택
-<img src="https://img.shields.io/badge/Next-000000?style=for-the-badge&logo=Next&logoColor=black"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"> <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=for-the-badge&logo=Tailwind CSS&logoColor=white"> <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=Prisma&logoColor=white"> <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=Supabase&logoColor=white"> <img src="https://img.shields.io/badge/React Hook Form-EC5990?style=for-the-badge&logo=ReactHookForm&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white"> <img src="https://img.shields.io/badge/React Query-FF4154?style=for-the-badge&logo=React Query&logoColor=white"> <img src="https://img.shields.io/badge/Recoil-3578E5?style=for-the-badge&logo=Recoil&logoColor=white"> <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white">
+- Frontend
+  
+  <img src="https://img.shields.io/badge/Next-000000?style=for-the-badge&logo=Next&logoColor=black"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">  <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white"> <img src="https://img.shields.io/badge/React Query-FF4154?style=for-the-badge&logo=React Query&logoColor=white"> <img src="https://img.shields.io/badge/Recoil-3578E5?style=for-the-badge&logo=Recoil&logoColor=white"> <img src="https://img.shields.io/badge/React Hook Form-EC5990?style=for-the-badge&logo=ReactHookForm&logoColor=white"> <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=for-the-badge&logo=Tailwind CSS&logoColor=white">
+- Backend
+  
+  <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=Supabase&logoColor=white"> <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=Prisma&logoColor=white"> 
+
+- Deploy
+  
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white">
 
 <br />
 
